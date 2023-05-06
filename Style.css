@@ -1,8 +1,11 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Rubik', sans-serif;
-    background-color: #EEF0F4;
+    font-family: 'Dosis', sans-serif;
+    background-color: #F8F7FF;
+    color: #432000;
+    user-select: none;
+    font-weight: 600px;
 }
 
 .container {
@@ -13,7 +16,7 @@ html, body {
 }
 
 img {
-    width: 150px;
+    width: 250px;
     margin: 0 auto;
 }
 
@@ -23,19 +26,52 @@ input {
     border: 0;
     padding: 15px;
     border-radius: 8px;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Dosis', sans-serif;
     margin: 10px 0;
 }
 
 button {
-    color: #FDFDFD;
-    background-color: #AC485A;
+    color: #140d1c;
+    background-color: #858bff;
+    font-family: 'Dosis', sans-serif;
+
     border: 0;
     padding: 15px;
     border-radius: 8px;
     font-size: 20px;
     text-align: center;
-    font-family: 'Rubik', sans-serif;
+}
+
+button:hover {
+    background-color: #7c6cd8;
+    cursor: pointer;
+    color: whitesmoke;
+}
+
+ul {
+    list-style-type: none;
+    font-family: 'Dosis', sans-serif;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+ul li {
+    font-size: 20px;
+    font-family: 'Dosis', sans-serif;
+    font-weight: 400px;
+    background-color: #fdd0ac;
+    padding: 15px;
+    border-radius: 8px;
+    flex-grow: 1;
+    text-align: center;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2)
+}
+
+ul li:hover {
+    background-color: #ff8052;
+    cursor: pointer;
 }
