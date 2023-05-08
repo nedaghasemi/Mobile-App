@@ -32,13 +32,17 @@ function appendItemToShoppingListEl(item){
 
     newEl.addEventListener("click", function(){
         let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`)
-        if(confirm(`Do you want to remove "${itemValue}"?`)==true){
+        /* if(confirm(`Do you want to remove "${itemValue}"?`)==true){
          remove(exactLocationOfItemInDB);
-           }
-        
+           } */
+           myConfirmBox(`Do you want to remove "${itemValue}"?`).then(response=>{
+            if(response) // true or false response from the user
+            remove(exactLocationOfItemInDB);
+            
+        })
     })
-}
 
+}
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value;
     
@@ -67,4 +71,31 @@ onValue(shoppingListInDB, function(snapshot) {
             shoppingListEl.innerHTML = "No items here ... yet!"
     }   
 })
+
+
+
+
+
+function myConfirmBox(message) {
+    let element = document.createElement("div");
+    element.classList.add("box-background");
+    element.innerHTML = `<div class="box">
+                            ${message}
+                            <div>
+                                <button id="trueButton" class="btn green">Yes</button> <!-- Set Id for both buttons -->
+                                <button id="falseButton" class="btn red">No</button>
+                            </div>
+                        </div>`;
+    document.body.appendChild(element);
+    return new Promise(function (resolve, reject) {
+        document.getElementById("trueButton").addEventListener("click", function () {
+            resolve(true);
+            document.body.removeChild(element);
+        });
+        document.getElementById("falseButton").addEventListener("click", function () {
+            resolve(false);
+            document.body.removeChild(element);
+        });
+    })
+}
 
